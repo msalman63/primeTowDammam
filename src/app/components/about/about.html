@@ -1,0 +1,60 @@
+<section id="about" class="relative py-14 overflow-hidden bg-(--zinc-900)">
+  <div class="top-line absolute top-0 left-0 right-0 h-px pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12">
+    <div class="flex flex-col gap-6">
+      <span class="bg-(--primary-glow) inline-flex w-fit items-center px-4 py-1.5 border border-(--primary-dark) text-(--primary-light) rounded-md text-xs font-bold uppercase tracking-widest">
+        {{ languageService.tKey('aboutTag') }}
+      </span>
+      <h2 class="font-black leading-tight text-[clamp(1.8rem,4vw,2.6rem)] [font-family:var(--font-ar)] text-(--white)">
+        {{ languageService.tKey('aboutTitle') }}
+      </h2>
+      <p class="leading-relaxed [font-family:var(--font-ar)] text-[clamp(0.9rem,2vw,1rem)] text-(--zinc-400)">
+        {{ languageService.tKey('aboutDesc') }}
+      </p>
+
+      <div class="flex flex-col gap-3 mt-2">
+        <div class="accent-edge flex items-center gap-3 bg-(--zinc-950) rounded-r-lg px-6 py-4">
+          <span class="font-black text-2xl text-(--primary-light) [font-family:var(--font-en)]">500+</span>
+          <span class="text-sm font-medium [font-family:var(--font-ar)] text-(--zinc-400)">{{ languageService.tKey('aboutStat1') }}</span>
+        </div>
+        <div class="accent-edge flex items-center gap-3 bg-(--zinc-950) rounded-r-lg px-6 py-4">
+          <span class="font-black text-2xl text-(--primary-light) [font-family:var(--font-en)]">15 دقيقة</span>
+          <span class="text-sm font-medium [font-family:var(--font-ar)] text-(--zinc-400)">{{ languageService.tKey('aboutStat2') }}</span>
+        </div>
+        <div class="flex items-center gap-3 bg-(--primary-glow) border border-(--primary-dark) rounded-lg px-6 py-4">
+          <span class="text-xl">👑</span>
+          <span class="text-sm font-bold [font-family:var(--font-ar)] text-(--primary-light)">{{ languageService.tKey('aboutBadge') }}</span>
+        </div>
+      </div>
+
+      <p class="text-sm text-(--zinc-600) [font-family:var(--font-ar)] font-medium">
+        5+ {{ languageService.tKey('aboutYears') }}
+      </p>
+    </div>
+
+    <!-- Feature cards: now match services.html's hover language exactly —
+         accent-edge border, lift on hover, and the same primary-glow shadow. -->
+    <div class="flex flex-col gap-4">
+      @for (feature of features; track feature.id) {
+        <div
+          class="accent-edge group flex items-start gap-5 py-6 px-6 bg-(--zinc-950) rounded-r-xl cursor-pointer hover:-translate-y-1.5 hover:bg-(--zinc-900) hover:shadow-[0_16px_40px_var(--primary-glow)] transition-all duration-300"
+        >
+          <div class="w-12 h-12 bg-(--primary-glow) border border-(--primary-dark) flex items-center justify-center text-xl rounded-lg shrink-0 group-hover:scale-110 transition-transform duration-300">
+            {{ feature.icon }}
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <h3 class="font-bold [font-family:var(--font-ar)] text-base text-(--white)">
+              {{ languageService.tr(feature.title) }}
+            </h3>
+            <p class="text-sm leading-relaxed [font-family:var(--font-ar)] text-(--zinc-400)">
+              {{ languageService.tr(feature.description) }}
+            </p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="bottom-line absolute bottom-0 left-0 right-0 h-px pointer-events-none"></div>
+</section>

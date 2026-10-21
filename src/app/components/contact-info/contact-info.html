@@ -1,0 +1,94 @@
+<section id="contact" class="relative py-14 overflow-hidden bg-(--zinc-950)">
+  <div class="top-line absolute top-0 left-0 right-0 h-px pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14 flex flex-col items-center gap-4">
+      <span
+        class="bg-(--primary-glow) inline-flex items-center px-4 py-1.5 border border-(--primary-dark) text-(--primary-light) rounded-md text-xs font-bold uppercase tracking-widest">
+        {{ languageService.tKey('contactTag') }}
+      </span>
+      <h2 class="font-black leading-tight text-[clamp(1.8rem,5vw,2.8rem)] text-(--white) [font-family:var(--font-ar)]">
+        {{ languageService.tKey('contactTitle') }}
+      </h2>
+      <p class="max-w-2xl leading-relaxed [font-family:var(--font-ar)] text-[clamp(0.9rem,2vw,1rem)] text-(--zinc-400)">
+        {{ languageService.tKey('contactDesc') }}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <div class="flex flex-col gap-5">
+        <div class="flex flex-col divide-y divide-(--zinc-800) border border-(--zinc-800) rounded-xl overflow-hidden">
+          @for (contact of contacts; track contact.icon) {
+          @if (contact.href) {
+          <a [href]="contact.href" [attr.target]="contact.href.startsWith('https') ? '_blank' : null"
+            rel="noopener noreferrer"
+            class="bg-(--zinc-900) flex items-center gap-4 p-5 decoration-none hover:bg-(--zinc-800) transition-all duration-200 cursor-pointer">
+            <div
+              class="bg-(--primary-glow) w-11 h-11 flex items-center justify-center border border-(--primary-dark) text-lg shrink-0 rounded-lg">
+              {{ contact.icon }}
+            </div>
+            <div class="flex flex-col gap-0.5">
+              <span class="text-xs font-semibold [font-family:var(--font-ar)] text-(--primary-light)">
+                {{ languageService.tr(contact.label) }}
+              </span>
+              <span class="font-bold text-sm text-(--white) [font-family:var(--font-en)]">
+                {{ languageService.tr(contact.value) }}
+              </span>
+            </div>
+          </a>
+          }
+          @if (!contact.href) {
+          <div class="bg-(--zinc-900) flex items-center gap-4 p-5">
+            <div
+              class="bg-(--primary-glow) w-11 h-11 flex items-center justify-center text-lg border border-(--primary-dark) shrink-0 rounded-lg">
+              {{ contact.icon }}
+            </div>
+            <div class="flex flex-col gap-0.5">
+              <span class="text-xs font-semibold text-(--primary-light) [font-family:var(--font-ar)]">
+                {{ languageService.tr(contact.label) }}
+              </span>
+              <span class="font-bold text-sm text-(--white) [font-family:var(--font-ar)]">
+                {{ languageService.tr(contact.value) }}
+              </span>
+            </div>
+          </div>
+          }
+          }
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a [href]="social.callUrl"
+            class="bg-(--primary) flex-1 flex items-center justify-center gap-3 py-4 font-bold text-(--white) [font-family:var(--font-ar)] text-base rounded-xl hover:bg-(--primary-light) transition-all duration-200 active:scale-95">
+            <span class="text-xl">📞</span>
+            <span>{{ languageService.tKey('contactBtnCall') }}</span>
+          </a>
+          <a [href]="social.whatsappUrl" target="_blank" rel="noopener noreferrer"
+            class="flex-1 flex items-center justify-center gap-3 py-4 font-bold text-sm [font-family:var(--font-ar)] bg-transparent text-(--white) border-2 border-(--zinc-700) rounded-xl hover:border-[#25D366] hover:text-[#25D366] transition-all duration-200 active:scale-95">
+            <span><img src="images/icons/whatsapp-icon.svg" alt="WhatsApp" class="w-6 h-6" /></span>
+            <span>{{ languageService.tKey('contactBtnWa') }}</span>
+          </a>
+        </div>
+
+        <p class="text-center text-sm font-medium text-(--zinc-600) [font-family:var(--font-ar)]">
+          {{ languageService.isArabic() ? '⚡ استجابة خلال 15 دقيقة في جميع أحياء جدة' : '⚡ 15-minute average response
+          across all Jeddah districts' }}
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <div class="w-full overflow-hidden border border-(--zinc-800) rounded-xl h-90">
+          <iframe [src]="mapUrl" width="100%" height="100%" class="border-0 filter-[invert(90%)_hue-rotate(220deg)]"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Coverage area map"></iframe>
+        </div>
+        <a [href]="social.mapsUrl" target="_blank" rel="noopener noreferrer"
+          class="bg-(--zinc-900) w-full flex items-center justify-center gap-2 py-3.5 [font-family:var(--font-ar)] font-bold text-sm border border-(--zinc-800) rounded-xl hover:border-(--primary) hover:text-(--primary-light) transition-all duration-200">
+          <span>🗺️</span>
+          <span>{{ languageService.tKey('mapBtn') }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-line absolute bottom-0 left-0 right-0 h-px pointer-events-none"></div>
+</section>

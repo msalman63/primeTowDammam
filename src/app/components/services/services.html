@@ -1,0 +1,39 @@
+<section id="services" class="relative py-14 overflow-hidden bg-(--zinc-900)">
+  <div class="top-line absolute top-0 left-0 right-0 h-px pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-start mb-14 flex flex-col items-start gap-4 max-w-2xl">
+      <span
+        class="inline-flex items-center bg-(--primary-glow) border border-(--primary-dark) [font-family:var(--font-ar)] px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-widest text-(--primary-light)">
+        {{ languageService.tKey('servicesTag') }}
+      </span>
+      <h2 class="font-black leading-tight [font-family:var(--font-ar)] text-[clamp(1.8rem,5vw,2.8rem)] text-(--white)">
+        {{ languageService.tKey('servicesTitle') }}
+      </h2>
+      <p class="leading-relaxed text-[clamp(0.9rem,2vw,1rem)] [font-family:var(--font-ar)] text-(--zinc-400)">
+        {{ languageService.tKey('servicesDesc') }}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      @for (service of services; track service.id; let i = $index) {
+      <div
+        class="accent-edge group bg-(--zinc-950) relative flex flex-col gap-4 p-6 rounded-r-xl cursor-pointer hover:-translate-y-1.5 hover:bg-(--zinc-900) hover:shadow-[0_16px_40px_var(--primary-glow)] transition-all duration-300"
+        [ngClass]="i === 0 ? 'sm:col-span-2' : ''">
+        <div
+          class="w-12 h-12 bg-(--primary-glow) border border-(--primary-dark) flex items-center justify-center rounded-lg text-2xl shrink-0">
+          {{ service.icon }}
+        </div>
+        <div class="flex flex-col gap-2">
+          <h3 class="font-bold leading-snug [font-family:var(--font-ar)] text-[1.05rem] text-(--white)">
+            {{ languageService.tr(service.title) }}
+          </h3>
+          <p class="leading-relaxed text-sm [font-family:var(--font-ar)] text-(--zinc-400)">
+            {{ languageService.tr(service.description) }}
+          </p>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>

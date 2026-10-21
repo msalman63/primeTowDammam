@@ -1,0 +1,79 @@
+<section id="coverage" class="relative py-14 overflow-hidden bg-(--zinc-950)">
+  <div class="top-line absolute top-0 left-0 right-0 h-px pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-14 flex flex-col items-center gap-4 max-w-2xl mx-auto">
+      <span class="bg-(--primary-glow) inline-flex items-center px-4 py-1.5 border border-(--primary-dark) text-(--primary-light) rounded-md text-xs font-bold uppercase tracking-widest">
+        {{ languageService.tKey('coverageTag') }}
+      </span>
+      <h2 class="font-black leading-tight [font-family:var(--font-ar)] text-[clamp(1.8rem,5vw,2.8rem)] text-(--white)">
+        {{ languageService.tKey('coverageTitle') }}
+      </h2>
+      <p class="leading-relaxed text-[clamp(0.9rem,2vw,1rem)] [font-family:var(--font-ar)] text-(--zinc-400)">
+        {{ languageService.tKey('coverageDesc') }}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+      <!-- Timeline list of landmarks (all but last item) -->
+      <div class="flex flex-col">
+        @for (area of areas.slice(0, -1); track area.id; let last = $last) {
+          <div class="flex gap-4 pb-6" [ngClass]="!last ? 'border-s-2 border-(--zinc-800) ms-5 ps-6 relative' : 'ms-5 ps-6 relative'">
+            <span class="absolute -start-[15px] top-0 w-7 h-7 rounded-full bg-(--primary) flex items-center justify-center text-sm shrink-0">
+              {{ area.pin }}
+            </span>
+            <span class="font-bold text-sm leading-snug [font-family:var(--font-ar)] text-(--white) pt-0.5">
+              {{ languageService.tr(area.name) }}
+            </span>
+          </div>
+        }
+      </div>
+
+      <!-- Map + intercity highlight -->
+      <div class="flex flex-col gap-5">
+        <div class="h-56 bg-(--zinc-900) border border-(--zinc-800) relative w-full rounded-xl overflow-hidden flex flex-col items-center justify-center gap-3 cursor-pointer">
+          <div class="main-grid-bg absolute inset-0 pointer-events-none"></div>
+          <div class="relative z-10 flex flex-col items-center gap-3">
+            <div class="relative">
+              <div class="bg-(--primary) w-12 h-12 rounded-full flex items-center justify-center text-2xl z-10 relative shadow-[0_0_0_8px_var(--primary-glow)]">
+                📍
+              </div>
+              <div class="absolute bg-(--primary-glow) inset-0 rounded-full animate-ping"></div>
+            </div>
+            <span class="font-bold text-sm text-center [font-family:var(--font-ar)] text-(--zinc-300)">
+              {{ languageService.tKey('mapText') }}
+            </span>
+          </div>
+        </div>
+
+        <a
+          [href]="social.mapsUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-(--zinc-900) flex items-center justify-center gap-2 py-3.5 border border-(--zinc-800) rounded-xl [font-family:var(--font-ar)] font-bold text-sm hover:border-(--primary) hover:text-(--primary-light) transition-all duration-200"
+        >
+          <span>🗺️</span>
+          <span>{{ languageService.tKey('mapBtn') }}</span>
+        </a>
+
+        @for (area of areas; track area.id; let last = $last) {
+          @if (last) {
+            <div class="bg-(--primary-glow) border border-(--primary-dark) flex items-center gap-4 p-6 rounded-xl">
+              <span class="text-3xl shrink-0">{{ area.pin }}</span>
+              <div class="flex flex-col gap-1">
+                <span class="font-black text-base [font-family:var(--font-ar)] text-(--primary-light)">
+                  {{ languageService.tr(area.name) }}
+                </span>
+                <span class="text-sm font-medium [font-family:var(--font-ar)] text-(--primary-light)">
+                  {{ languageService.isArabic() ? 'إلى أي مدينة في المملكة' : 'To any city across Saudi Arabia' }}
+                </span>
+              </div>
+            </div>
+          }
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-line absolute bottom-0 left-0 right-0 h-px pointer-events-none"></div>
+</section>

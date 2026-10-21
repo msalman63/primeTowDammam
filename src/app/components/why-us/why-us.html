@@ -1,0 +1,33 @@
+<section id="why" class="relative py-14 overflow-hidden bg-(--zinc-950)">
+  <div class="ambient-glow absolute inset-0 pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+    <div class="text-center mb-12 flex flex-col items-center gap-4">
+      <span class="inline-flex items-center bg-(--primary-glow) border border-(--primary-dark) [font-family:var(--font-ar)] px-4 py-1.5 rounded-md text-xs font-bold uppercase tracking-widest text-(--primary-light)">
+        {{ languageService.tKey('whyTag') }}
+      </span>
+      <h2 class="font-black leading-tight [font-family:var(--font-ar)] text-[clamp(1.8rem,5vw,2.8rem)] text-(--white)">
+        {{ languageService.tKey('whyTitle') }}
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
+      @for (item of items; track item.id) {
+        <div
+          class="accent-edge group flex flex-col items-center text-center gap-3 p-7 bg-(--zinc-900) rounded-r-xl cursor-pointer hover:-translate-y-1.5 hover:bg-(--zinc-800) hover:shadow-[0_16px_40px_var(--primary-glow)] transition-all duration-300"
+        >
+          <span class="text-2xl group-hover:scale-110 transition-transform duration-300">{{ item.icon }}</span>
+          <span class="font-black leading-none [font-family:var(--font-en)] text-[clamp(1.6rem,4vw,2.1rem)] text-(--primary-light)">
+            {{ item.stat }}
+          </span>
+          <span class="text-xs font-semibold [font-family:var(--font-ar)] text-(--zinc-500)">
+            {{ languageService.tr(item.unit) }}
+          </span>
+          <h3 class="text-sm font-bold leading-snug [font-family:var(--font-ar)] text-(--zinc-300)">
+            {{ languageService.tr(item.title) }}
+          </h3>
+        </div>
+      }
+    </div>
+  </div>
+</section>
