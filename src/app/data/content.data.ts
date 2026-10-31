@@ -52,31 +52,22 @@ export const COVERAGE_DATA: CoverageArea[] = [
 ];
 
 export const GALLERY_DATA: GalleryItem[] = [
-  {
-    id: 1, span: 'wide', emoji: '🚛',
-    imageUrl: 'images/gallery/lamborghini-riyadh.jpeg',
-    label: { ar: 'نقل لامبورغيني — الدمام', en: 'Lamborghini Transport — Dammam' }
-  },
-  {
-    id: 2, span: 'single', emoji: '🚙',
-    imageUrl: 'images/gallery/range-rover-loading.jpeg',
-    label: { ar: 'رنج روفر — خدمة ليلية', en: 'Range Rover — Night Service' }
-  },
-  {
-    id: 3, span: 'single', emoji: '🚗',
-    imageUrl: 'images/gallery/camaro-mosque-night.jpeg',
-    label: { ar: 'كامارو — استجابة فورية', en: 'Camaro — Immediate Response' }
-  },
-  {
-    id: 4, span: 'single', emoji: '🚛',
-    imageUrl: 'images/gallery/fleet-trucks-daytime.jpeg',
-    label: { ar: 'أسطول برايم — جاهزون دائماً', en: 'Prime Fleet — Always Ready' }
-  },
-  {
-    id: 5, span: 'single', emoji: '🏎️',
-    imageUrl: 'images/gallery/rollsroyce-showroom-delivery.jpeg',
-    label: { ar: 'رولز رويس — تسليم احترافي', en: 'Rolls Royce — Professional Delivery' }
-  },
+  { id: 1, span: 'wide',   emoji: '🚛', imageUrl: 'images/gallery/bentley-mulsanne-night.jpeg',
+    label: { ar: 'بنتلي — خدمة ليلية فاخرة', en: 'Bentley — Premium Night Service' } },
+  { id: 2, span: 'single', emoji: '🏎️', imageUrl: 'images/gallery/corvette-red-fuel-station.jpeg',
+    label: { ar: 'كورفيت — نقل آمن للسيارات الرياضية', en: 'Corvette — Safe Sports Car Transport' } },
+  { id: 3, span: 'single', emoji: '🚙', imageUrl: 'images/gallery/range-rover-green.jpeg',
+    label: { ar: 'رنج روفر — تحميل آمن', en: 'Range Rover — Secure Loading' } },
+  { id: 4, span: 'single', emoji: '🚗', imageUrl: 'images/gallery/dodge-charger-red.jpeg',
+    label: { ar: 'دودج تشارجر — نقل احترافي', en: 'Dodge Charger — Professional Transport' } },
+  { id: 5, span: 'single', emoji: '🛻', imageUrl: 'images/gallery/gmc-pickup-sunset.jpeg',
+    label: { ar: 'جي إم سي بيك أب — نقل وإنقاذ', en: 'GMC Pickup — Recovery & Transport' } },
+  { id: 6, span: 'single', emoji: '🚐', imageUrl: 'images/gallery/toyota-hiace-van.jpeg',
+    label: { ar: 'تويوتا هاي إيس — نقل المركبات التجارية', en: 'Toyota Hiace — Commercial Vehicle Transport' } },
+  { id: 7, span: 'single', emoji: '🚜', imageUrl: 'images/gallery/cfmoto-utv.jpeg',
+    label: { ar: 'نقل مركبة CFMOTO الرباعية', en: 'CFMOTO UTV Transport' } },
+  { id: 8, span: 'single', emoji: '🏍️', imageUrl: 'images/gallery/honda-goldwing-motorcycle.jpeg',
+    label: { ar: 'نقل الدراجات النارية', en: 'Motorcycle Transport' } },
 ];
 
 export const ABOUT_FEATURES: AboutFeature[] = [
