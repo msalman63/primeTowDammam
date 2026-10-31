@@ -1,1 +1,92 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+:root {
+  --primary:       #7C3AED;
+  --primary-light: #A78BFA;
+  --primary-dark:  #5B21B6;
+  --primary-glow:  rgba(124, 58, 237, 0.15);
+  --gold:          #D4AF37;
+  --black:         #0A0A0A;
+  --zinc-950:      #09090B;
+  --zinc-900:      #18181B;
+  --zinc-800:      #27272A;
+  --zinc-700:      #3F3F46;
+  --zinc-600:      #52525B;
+  --zinc-400:      #A1A1AA;
+  --zinc-300:      #D4D4D8;
+  --white:         #FFFFFF;
+  --radius:        12px;
+  --radius-sm:     8px;
+  --font-ar:       'Cairo', 'Tajawal', sans-serif;
+  --font-en:       'Poppins', sans-serif;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  /* Thin gradient rules — gold-flecked instead of plain fade, for the "premium" read */
+  .top-line {
+    background: linear-gradient(to right, transparent, var(--primary-dark), var(--gold), var(--primary-dark), transparent);
+  }
+  .bottom-line {
+    background: linear-gradient(to right, transparent, var(--zinc-800), transparent);
+  }
+  .ambient-glow {
+    background: radial-gradient(circle at 50% 0%, var(--primary-glow), transparent 60%);
+  }
+
+  /* Dot grid instead of HydroTow's line grid — a deliberate visual fingerprint difference */
+  .main-grid-bg {
+    background-image: radial-gradient(var(--zinc-700) 1px, transparent 1px);
+    background-size: 22px 22px;
+    opacity: 0.35;
+  }
+
+  .dark-overlay {
+    background: linear-gradient(to top, rgba(9, 9, 11, 0.92), rgba(9, 9, 11, 0.05));
+  }
+
+  /* Left/inline-start accent bar used on Elite's cards instead of all-around glow borders */
+  .accent-edge {
+    border-inline-start: 3px solid var(--primary);
+  }
+
+  .float-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .float-hidden {
+    opacity: 0;
+    transform: translateY(24px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .float-pulse {
+    animation: pulse-ring 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse-ring {
+    0%   { box-shadow: 0 0 0 0    var(--primary-glow), 0 4px 20px var(--primary-glow); }
+    50%  { box-shadow: 0 0 0 10px transparent,          0 4px 20px var(--primary-glow); }
+    100% { box-shadow: 0 0 0 0    var(--primary-glow), 0 4px 20px var(--primary-glow); }
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background:  var(--zinc-950);
+    color:       var(--white);
+    font-family: var(--font-ar);
+    direction:   rtl;
+    overflow-x:  hidden;
+  }
+  body.ltr {
+    direction:   ltr;
+    font-family: var(--font-en);
+  }
+}

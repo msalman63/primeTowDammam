@@ -1,0 +1,101 @@
+<footer role="contentinfo" class="relative bg-(--zinc-950) border-t border-(--primary-dark)/30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      <div class="flex flex-col gap-6">
+        <div class="flex items-center gap-2.5">
+          <span class="w-9 h-9 rounded-lg bg-(--primary) rotate-45 flex items-center justify-center shrink-0">
+            <span class="-rotate-45 text-base font-black text-(--white)">{{ brand.nameArShort.charAt(0) }}</span>
+          </span>
+          <div class="flex flex-col leading-tight">
+            <span class="font-black text-xl [font-family:var(--font-ar)] text-(--white)">{{ brand.nameArShort }}</span>
+            <span
+              class="text-xs font-bold tracking-[0.25em] uppercase [font-family:var(--font-en)] text-(--primary-light)">{{
+              brand.tagEn }}</span>
+          </div>
+        </div>
+
+        <p class="leading-relaxed text-sm [font-family:var(--font-ar)] text-(--zinc-400)">
+          {{ languageService.tKey('footerDesc') }}
+        </p>
+
+        <div class="flex flex-col gap-3">
+          <a [href]="social.callUrl"
+            class="flex-1 flex items-center justify-center gap-2 py-3 font-bold text-sm [font-family:var(--font-ar)] bg-(--primary) text-(--white) rounded-xl shadow-[0_4px_16px_var(--primary-glow)] hover:bg-(--primary-light) transition-all duration-200 active:scale-95">
+            <span>📞</span>
+            <span>{{ languageService.tKey('contactBtnCall') }}</span>
+          </a>
+          <a [href]="social.whatsappUrl" target="_blank" rel="noopener noreferrer"
+            class="flex-1 flex items-center justify-center gap-2 py-3 font-bold text-sm [font-family:var(--font-ar)] bg-transparent text-(--white) border-2 border-(--zinc-700) rounded-xl hover:border-[#25D366] hover:text-[#25D366] transition-all duration-200 active:scale-95">
+            <span><img src="images/icons/whatsapp-icon.svg" alt="WhatsApp" class="w-6 h-6" /></span>
+            <span>{{ languageService.tKey('contactBtnWa') }}</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-6">
+        <h3 class="font-black text-sm uppercase tracking-widest text-(--primary-light) [font-family:var(--font-ar)]">
+          {{ languageService.isArabic() ? 'روابط سريعة' : 'Quick Links' }}
+        </h3>
+        <div class="flex flex-col gap-1">
+          @for (link of navLinks; track link.id) {
+          <button (click)="scroll.scrollTo(link.fragment)"
+            class="accent-edge text-start px-4 py-2 text-sm font-bold [font-family:var(--font-ar)] text-(--zinc-300) hover:text-(--white) hover:bg-(--zinc-900) rounded-md transition-all duration-200">
+            {{ languageService.tr(link.label) }}
+          </button>
+          }
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-6">
+        <h3 class="font-black text-sm uppercase tracking-widest text-(--primary-light) [font-family:var(--font-ar)]">
+          {{ languageService.tKey('contactTag') }}
+        </h3>
+        <ul class="flex flex-col gap-4">
+          <li>
+            <a [href]="social.callUrl" class="flex items-center gap-3 no-underline group">
+              <span
+                class="w-10 h-10 flex items-center justify-center text-base shrink-0 bg-(--primary-glow) border border-(--primary-dark) rounded-lg group-hover:scale-110 transition-transform duration-300">📞</span>
+              <div class="flex flex-col gap-0.5">
+                <span class="text-xs font-semibold text-(--primary-light) [font-family:var(--font-ar)]">{{
+                  languageService.isArabic() ? 'اتصل بنا' : 'Call Us' }}</span>
+                <span
+                  class="text-sm font-bold text-(--zinc-300) [font-family:var(--font-en)] group-hover:text-(--white) transition-colors duration-200">{{
+                  social.callUrl }}</span>
+              </div>
+            </a>
+          </li>
+          <li class="flex items-center gap-3 group">
+            <span
+              class="w-10 h-10 flex items-center justify-center text-base shrink-0 bg-(--primary-glow) border border-(--primary-dark) rounded-lg group-hover:scale-110 transition-transform duration-300">📍</span>
+            <div class="flex flex-col gap-0.5">
+              <span class="text-xs font-semibold text-(--primary-light) [font-family:var(--font-ar)]">{{
+                languageService.isArabic() ? 'موقعنا' : 'Location' }}</span>
+              <span class="text-sm font-bold text-(--zinc-300) [font-family:var(--font-ar)]">{{
+                languageService.tKey('contactLocation') }}</span>
+            </div>
+          </li>
+          <li class="flex items-center gap-3 group">
+            <span
+              class="w-10 h-10 flex items-center justify-center text-base shrink-0 bg-(--primary-glow) border border-(--primary-dark) rounded-lg group-hover:scale-110 transition-transform duration-300">🕐</span>
+            <div class="flex flex-col gap-0.5">
+              <span class="text-xs font-semibold text-(--primary-light) [font-family:var(--font-ar)]">{{
+                languageService.isArabic() ? 'ساعات العمل' : 'Working Hours' }}</span>
+              <span class="text-sm font-bold text-(--zinc-300) [font-family:var(--font-en)]">{{
+                languageService.tKey('contactHours') }}</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-(--zinc-800)">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-xs text-center sm:text-start text-(--zinc-600) [font-family:var(--font-ar)]">
+        {{ year }} © {{ brand.nameArShort }} — {{ languageService.isArabic() ? 'جميع الحقوق محفوظة' : 'All Rights
+        Reserved' }}
+      </p>
+      <p class="text-xs text-(--zinc-700) [font-family:var(--font-en)]">Jeddah, Saudi Arabia 🇸🇦</p>
+    </div>
+  </div>
+</footer>
