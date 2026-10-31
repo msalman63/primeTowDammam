@@ -92,10 +92,10 @@
   <div class="border-t border-(--zinc-800)">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
       <p class="text-xs text-center sm:text-start text-(--zinc-600) [font-family:var(--font-ar)]">
-        {{ year }} © {{ brand.nameArShort }} — {{ languageService.isArabic() ? 'جميع الحقوق محفوظة' : 'All Rights
-        Reserved' }}
+        {{ year }} © {{ languageService.isArabic() ? brand.legalAr : brand.legalEn }} —
+        {{ languageService.isArabic() ? 'جميع الحقوق محفوظة' : 'All Rights Reserved' }}
+        · {{ languageService.isArabic() ? 'السجل التجاري' : 'CR' }}: {{ brand.crNumber }}
       </p>
-      <p class="text-xs text-(--zinc-700) [font-family:var(--font-en)]">Jeddah, Saudi Arabia 🇸🇦</p>
     </div>
   </div>
 </footer>
