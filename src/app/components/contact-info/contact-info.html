@@ -70,14 +70,15 @@
         </div>
 
         <p class="text-center text-sm font-medium text-(--zinc-600) [font-family:var(--font-ar)]">
-          {{ languageService.isArabic() ? '⚡ استجابة خلال 15 دقيقة في جميع أحياء جدة' : '⚡ 15-minute average response
-          across all Jeddah districts' }}
+          {{ languageService.isArabic()
+          ? '⚡ استجابة خلال 15 دقيقة في الدمام والمنطقة الشرقية'
+          : '⚡ 15-minute average response across Dammam & the Eastern Province' }}
         </p>
       </div>
 
       <div class="flex flex-col gap-4">
         <div class="w-full overflow-hidden border border-(--zinc-800) rounded-xl h-90">
-          <iframe [src]="mapUrl" width="100%" height="100%" class="border-0 filter-[invert(90%)_hue-rotate(220deg)]"
+          <iframe title="Prime Tow Dammam location map" [src]="mapUrl" width="100%" height="100%" class="border-0 filter-[invert(90%)_hue-rotate(220deg)]"
             allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
             title="Coverage area map"></iframe>
         </div>

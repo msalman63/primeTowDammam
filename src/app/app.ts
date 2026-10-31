@@ -1,5 +1,4 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { Navbar } from './components/navbar/navbar';
 import { Home } from './components/home/home';
 import { Services } from './components/services/services';
@@ -18,5 +17,5 @@ import { FloatingButtons } from './components/floating-buttons/floating-buttons'
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('eliteTowJeddah');
+  protected readonly title = signal('primeTowDammam');
 }

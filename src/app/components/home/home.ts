@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { LanguageService } from '../../services/language-service';
 import { ScrollService } from '../../services/scroll-service';
-import { SOCIAL } from '../../constants/app-constants';
+import { BRAND, SOCIAL } from '../../constants/app-constants';
 import { HOME_BADGES, HOME_STATS } from '../../data/content.data';
 import { NgClass } from '@angular/common';
 
@@ -16,6 +16,7 @@ export class Home {
   protected readonly scrollService = inject(ScrollService);
 
   protected readonly social = SOCIAL;
+  protected readonly brand = BRAND;
   protected readonly stats = HOME_STATS;
   protected readonly badges = HOME_BADGES;
 }

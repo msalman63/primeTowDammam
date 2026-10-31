@@ -3,60 +3,73 @@
   <div class="ambient-glow absolute inset-0 pointer-events-none"></div>
 
   <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 py-16 flex flex-col items-center text-center gap-6">
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-md text-sm font-semibold bg-(--primary-glow) border border-(--primary-dark) text-(--primary-light) [font-family:var(--font-ar)]">
+    <div
+      class="inline-flex items-center gap-2 px-4 py-1.5 rounded-md text-sm font-semibold bg-(--primary-glow) border border-(--primary-dark) text-(--primary-light) [font-family:var(--font-ar)]">
       <span class="w-2 h-2 rounded-full animate-pulse bg-(--gold)"></span>
       {{ languageService.tKey('heroBadge') }}
     </div>
 
     <h1 class="flex flex-col gap-1">
-      <span class="block font-black leading-tight [font-family:var(--font-ar)] text-[clamp(2.5rem,7vw,4.5rem)] text-(--white)">
+      <span
+        class="block font-black leading-tight [font-family:var(--font-ar)] text-[clamp(2.5rem,7vw,4.5rem)] text-(--white)">
         {{ languageService.tKey('heroTitle1') }}
       </span>
-      <span class="block font-black leading-tight [font-family:var(--font-ar)] text-[clamp(2.5rem,7vw,4.5rem)] text-(--primary-light)">
+      <span
+        class="block font-black leading-tight [font-family:var(--font-ar)] text-[clamp(2.5rem,7vw,4.5rem)] text-(--primary-light)">
         {{ languageService.tKey('heroTitle2') }}
       </span>
     </h1>
 
-    <p class="block font-bold tracking-wide [font-family:var(--font-en)] text-[clamp(0.9rem,2.5vw,1.25rem)] text-(--zinc-400)">
+    <p
+      class="block font-bold tracking-wide [font-family:var(--font-en)] text-[clamp(0.9rem,2.5vw,1.25rem)] text-(--zinc-400)">
       {{ languageService.tKey('heroEnTitle') }}
     </p>
 
-    <p class="max-w-2xl leading-relaxed [font-family:var(--font-ar)] text-[clamp(0.95rem,2vw,1.1rem)] font-bold text-(--zinc-300)">
+    <p
+      class="max-w-2xl leading-relaxed [font-family:var(--font-ar)] text-[clamp(0.95rem,2vw,1.1rem)] font-bold text-(--zinc-300)">
       {{ languageService.tKey('heroDesc') }}
     </p>
 
+    <!-- Registered company name -->
+    <div
+      class="flex flex-col items-center gap-0.5 px-6 py-3 rounded-(--radius) border border-(--primary-dark) bg-(--primary-glow)">
+      <span
+        class="text-[10px] font-bold tracking-[0.2em] uppercase text-(--primary-light) [font-family:var(--font-en)]">
+        {{ languageService.isArabic() ? 'مؤسسة مسجلة' : 'Registered Establishment' }}
+      </span>
+      <span class="font-black text-lg sm:text-xl text-(--white) [font-family:var(--font-ar)]">
+        {{ brand.legalAr }}
+      </span>
+      <span class="text-xs sm:text-sm font-medium text-(--zinc-300) [font-family:var(--font-en)]">
+        {{ brand.legalEn }}
+      </span>
+    </div>
+
     <div class="flex flex-wrap justify-center gap-3">
       @for (badge of badges; track badge.icon) {
-        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium border border-(--zinc-800) [font-family:var(--font-ar)] text-(--zinc-300) bg-(--zinc-900)">
-          <span>{{ badge.icon }}</span>
-          <span>{{ languageService.tr(badge.label) }}</span>
-        </span>
+      <span
+        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium border border-(--zinc-800) [font-family:var(--font-ar)] text-(--zinc-300) bg-(--zinc-900)">
+        <span>{{ badge.icon }}</span>
+        <span>{{ languageService.tr(badge.label) }}</span>
+      </span>
       }
     </div>
 
     <div class="flex flex-wrap justify-center gap-3 mt-2">
-      <a
-        [href]="social.callUrl"
-        class="bg-(--primary) text-(--white) [font-family:var(--font-ar)] border-2 border-(--primary-light) shadow-[0_8px_24px_var(--primary-glow)] inline-flex items-center gap-2 px-7 py-3.5 font-black text-base rounded-xl transition-all duration-200 active:scale-95 hover:bg-(--primary-light) hover:border-(--white)"
-      >
+      <a [href]="social.callUrl"
+        class="bg-(--primary) text-(--white) [font-family:var(--font-ar)] border-2 border-(--primary-light) shadow-[0_8px_24px_var(--primary-glow)] inline-flex items-center gap-2 px-7 py-3.5 font-black text-base rounded-xl transition-all duration-200 active:scale-95 hover:bg-(--primary-light) hover:border-(--white)">
         <span>📞</span>
         <span>{{ languageService.tKey('heroBtnCall') }}</span>
       </a>
-      <a
-        [href]="social.whatsappUrl"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="bg-transparent text-[#25D366] [font-family:var(--font-ar)] border-2 border-[#25D366] rounded-xl inline-flex items-center gap-2 px-7 py-3.5 font-bold text-base transition-all duration-200 active:scale-95 hover:bg-[#25D366] hover:text-(--white)"
-      >
+      <a [href]="social.whatsappUrl" target="_blank" rel="noopener noreferrer"
+        class="bg-transparent text-[#25D366] [font-family:var(--font-ar)] border-2 border-[#25D366] rounded-xl inline-flex items-center gap-2 px-7 py-3.5 font-bold text-base transition-all duration-200 active:scale-95 hover:bg-[#25D366] hover:text-(--white)">
         <span><img src="images/icons/whatsapp-icon.svg" alt="WhatsApp" class="w-6 h-6" /></span>
         <span>{{ languageService.tKey('heroBtnWa') }}</span>
       </a>
     </div>
 
-    <button
-      (click)="scrollService.scrollTo('services')"
-      class="inline-flex items-center gap-2 mt-1 text-sm font-medium text-(--zinc-400) [font-family:var(--font-ar)] transition-all duration-200 hover:text-(--primary-light)"
-    >
+    <button (click)="scrollService.scrollTo('services')"
+      class="inline-flex items-center gap-2 mt-1 text-sm font-medium text-(--zinc-400) [font-family:var(--font-ar)] transition-all duration-200 hover:text-(--primary-light)">
       <span>{{ languageService.tKey('heroBtnServices') }}</span>
       <span class="animate-bounce">↓</span>
     </button>
@@ -64,17 +77,17 @@
     <!-- Stat cards: full-width row at the bottom of the hero -->
     <div class="w-full mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
       @for (stat of stats; track stat.number; let i = $index) {
-        <div
-          class="accent-edge flex flex-col items-center gap-1 py-6 px-4 bg-(--zinc-900) rounded-r-xl hover:bg-(--zinc-800) hover:-translate-y-1 transition-all duration-300 cursor-default"
-          [ngClass]="i % 2 === 1 ? 'md:translate-y-4' : ''"
-        >
-          <span class="font-black leading-none text-(--primary-light) [font-family:var(--font-en)] text-[clamp(1.6rem,4vw,2rem)]">
-            {{ stat.number }}
-          </span>
-          <span class="text-xs font-medium text-center text-(--zinc-400) [font-family:var(--font-ar)]">
-            {{ languageService.tr(stat.label) }}
-          </span>
-        </div>
+      <div
+        class="accent-edge flex flex-col items-center gap-1 py-6 px-4 bg-(--zinc-900) rounded-r-xl hover:bg-(--zinc-800) hover:-translate-y-1 transition-all duration-300 cursor-default"
+        [ngClass]="i % 2 === 1 ? 'md:translate-y-4' : ''">
+        <span
+          class="font-black leading-none text-(--primary-light) [font-family:var(--font-en)] text-[clamp(1.6rem,4vw,2rem)]">
+          {{ stat.number }}
+        </span>
+        <span class="text-xs font-medium text-center text-(--zinc-400) [font-family:var(--font-ar)]">
+          {{ languageService.tr(stat.label) }}
+        </span>
+      </div>
       }
     </div>
   </div>

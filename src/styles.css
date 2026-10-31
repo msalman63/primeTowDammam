@@ -49,7 +49,7 @@
     background: linear-gradient(to top, rgba(9, 9, 11, 0.92), rgba(9, 9, 11, 0.05));
   }
 
-  /* Left/inline-start accent bar used on Elite's cards instead of all-around glow borders */
+  /* Left/inline-start accent bar used on prime's cards instead of all-around glow borders */
   .accent-edge {
     border-inline-start: 3px solid var(--primary);
   }

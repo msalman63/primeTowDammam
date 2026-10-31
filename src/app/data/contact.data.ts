@@ -1,5 +1,5 @@
-import { ContactInfo }          from '../interfaces/contact-info';
-import { PHONE_NUMBER, WHATSAPP_NUMBER, SOCIAL } from '../constants/app-constants';
+import { ContactInfo } from '../interfaces/contact-info';
+import { PHONE_NUMBER, SOCIAL } from '../constants/app-constants';
 
 export const CONTACT_DATA: ContactInfo[] = [
   {
@@ -11,13 +11,13 @@ export const CONTACT_DATA: ContactInfo[] = [
   {
     icon:  '💬',
     label: { ar: 'تواصل عبر واتساب', en: 'WhatsApp Us'      },
-    value: { ar: WHATSAPP_NUMBER,     en: WHATSAPP_NUMBER    },
+    value: { ar: PHONE_NUMBER,        en: PHONE_NUMBER       },
     href:  SOCIAL.whatsappUrl,
   },
   {
     icon:  '📍',
     label: { ar: 'موقعنا',            en: 'Our Location'     },
-    value: { ar: 'جدة، المملكة العربية السعودية', en: 'Jeddah, Saudi Arabia' },
+    value: { ar: 'الدمام — المنطقة الشرقية، المملكة العربية السعودية', en: 'Dammam — Eastern Province, Saudi Arabia' },
   },
   {
     icon:  '🕐',
